@@ -1,0 +1,11 @@
+Post sample
+{
+    "id": 1,
+    "name": "s.dabaghi",
+    "age": 33,
+    "salary": 70000.0
+}
+
+
+Dont forget
+Content-Type: application/json
