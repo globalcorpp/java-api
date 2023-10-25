@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-app-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-app
+  template:
+    metadata:
+      labels:
+        app: java-app
+    spec:
+      containers:
+        - name: java-app-container
+          image: globalcorp/java-api:v1
+          ports:
+            - containerPort: 8181  # The port your java app is listening on
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-app-api-service
+spec:
+  selector:
+    app: java-app
+  ports:
+    - protocol: TCP
+      port: 8081  # The port exposed by the service within the cluster
+      targetPort: 8181  # The port your java app is listening on inside the pod
+  type: LoadBalancer

@@ -9,3 +9,6 @@ Post sample
 
 Dont forget
 Content-Type: application/json
+
+mvn clean package
+java -jar target/docker-message-server-1.0.0.jar

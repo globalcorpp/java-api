@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  app:
+    image: ${IMAGE}:${TAG}
+    container_name: ${CONTAINER_NAME}
+    restart: ${RESTART_POLICY}
+
+    ports:
+      - ${PORT}:8181
