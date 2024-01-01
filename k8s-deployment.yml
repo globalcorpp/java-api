@@ -15,8 +15,11 @@ spec:
       containers:
         - name: java-app-container
           image: globalcorp/java-api:v1
+          imagePullPolicy: Always
           ports:
             - containerPort: 8181  # The port your java app is listening on
+#      imagePullSecrets:
+#        - name: java-api-secret  # k create secret docker-registry java-api-secret --docker-server="https://harbor.example.com" --docker-username="XXX" --docker-password="YYY"
 ---
 apiVersion: v1
 kind: Service
@@ -25,8 +28,10 @@ metadata:
 spec:
   selector:
     app: java-app
+  # type: LoadBalancer
+  type: NodePort
   ports:
     - protocol: TCP
       port: 8081  # The port exposed by the service within the cluster
       targetPort: 8181  # The port your java app is listening on inside the pod
-  type: LoadBalancer
+      nodePort: 30007

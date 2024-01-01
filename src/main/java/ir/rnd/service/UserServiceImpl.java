@@ -75,6 +75,7 @@ public class UserServiceImpl implements UserService {
         users.add(new User(counter.incrementAndGet(), "s.aghashiri", 30, 530000));
         users.add(new User(counter.incrementAndGet(), "m.mounesan", 30, 510000));
         users.add(new User(counter.incrementAndGet(), "m.nazari", 30, 52000));
+        users.add(new User(counter.incrementAndGet(), "cms", 46, 92000));
         return users;
     }
 

@@ -35,7 +35,7 @@ pipeline {
                 sh 'docker-compose up -d'
             }
         }
-                stage('Deploy to Kubernets'){
+                stage('Deploy to Kubernetes'){
             steps{
                 script{
                     withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
